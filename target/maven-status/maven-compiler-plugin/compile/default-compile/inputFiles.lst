@@ -1,0 +1,10 @@
+/home/gabriel/Documentos/Spring/cadastro-pessoas/src/main/java/com/gabriel/cadastropessoas/model/Pessoa.java
+/home/gabriel/Documentos/Spring/cadastro-pessoas/src/main/java/com/gabriel/cadastropessoas/CadastroPessoasApplication.java
+/home/gabriel/Documentos/Spring/cadastro-pessoas/src/main/java/com/gabriel/cadastropessoas/error/ControllerAdviceHandler.java
+/home/gabriel/Documentos/Spring/cadastro-pessoas/src/main/java/com/gabriel/cadastropessoas/service/PessoaService.java
+/home/gabriel/Documentos/Spring/cadastro-pessoas/src/main/java/com/gabriel/cadastropessoas/repository/PessoaRepository.java
+/home/gabriel/Documentos/Spring/cadastro-pessoas/src/main/java/com/gabriel/cadastropessoas/controller/PessoaController.java
+/home/gabriel/Documentos/Spring/cadastro-pessoas/src/main/java/com/gabriel/cadastropessoas/repository/ContatoRepository.java
+/home/gabriel/Documentos/Spring/cadastro-pessoas/src/main/java/com/gabriel/cadastropessoas/model/Contato.java
+/home/gabriel/Documentos/Spring/cadastro-pessoas/src/main/java/com/gabriel/cadastropessoas/error/ErroBuilder.java
+/home/gabriel/Documentos/Spring/cadastro-pessoas/src/main/java/com/gabriel/cadastropessoas/error/Erro.java
