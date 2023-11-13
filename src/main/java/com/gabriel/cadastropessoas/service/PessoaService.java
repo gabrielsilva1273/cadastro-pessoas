@@ -24,7 +24,8 @@ public class PessoaService {
 
     public Pessoa alterar(Pessoa pessoa,Long id) {
         pessoa.setId(id);
-        return salvar(pessoa);
+        salvar(pessoa);
+        return buscarPorId(id);
     }
 
     public void excluir(Long id) {
@@ -38,13 +39,17 @@ public class PessoaService {
     }
 
     public Map<String, Object> buscarPorPagina(Integer numeroDaPagina, Integer quantidadePorPagina){
-
+        numeroDaPagina = numeroDaPagina -1;
         Pageable pageable = PageRequest.of(numeroDaPagina,quantidadePorPagina);
         Page<Pessoa> paginaPessoa = pessoaRepository.findAll(pageable);
         Map<String,Object> resposta = new HashMap<>();
         resposta.put("pessoas",paginaPessoa.getContent());
-        resposta.put("numero",paginaPessoa.getNumber());
-        resposta.put("numeroDeElementos",paginaPessoa.getNumberOfElements());
+        resposta.put("paginaAtual",paginaPessoa.getNumber()+1);
+        resposta.put("totalDePessoas",paginaPessoa.getTotalElements());
+        resposta.put("totalDePaginas",
+                Math.ceil((double) paginaPessoa.getTotalElements() /quantidadePorPagina
+        ));
+
         return resposta;
     }
 }

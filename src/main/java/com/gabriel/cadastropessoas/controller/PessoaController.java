@@ -16,7 +16,7 @@ public class PessoaController {
         this.pessoaService = pessoaService;
     }
     @GetMapping
-    public Map<String, Object> buscarPorPagina(@RequestParam(defaultValue = "0") Integer numeroDaPagina,
+    public Map<String, Object> buscarPorPagina(@RequestParam(defaultValue = "1") Integer numeroDaPagina,
                                                @RequestParam(defaultValue = "4") Integer quantidadePorPagina){
         return pessoaService.buscarPorPagina(numeroDaPagina,quantidadePorPagina);
     }

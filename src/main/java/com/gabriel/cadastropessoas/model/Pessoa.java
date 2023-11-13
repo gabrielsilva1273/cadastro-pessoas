@@ -1,9 +1,7 @@
 package com.gabriel.cadastropessoas.model;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.Id;
-import jakarta.persistence.OneToMany;
+import com.fasterxml.jackson.annotation.JsonFormat;
+import jakarta.persistence.*;
 import jakarta.validation.constraints.*;
 import org.hibernate.validator.constraints.br.CPF;
 
@@ -15,18 +13,20 @@ public class Pessoa {
     @Id
     @GeneratedValue
     private Long id;
-    @NotBlank(message = "É necessário fornecer um nome")
+    @NotBlank(message = "É necessário fornecer um nome para a pessoa")
 
     private String nome;
-    @NotBlank(message = "É necessário fornecer um CPF")
+    @NotBlank(message = "É necessário fornecer um CPF para a pessoa ")
     @CPF
     private String cpf;
-    @NotBlank(message = "É necessário fornecer uma data de nascimento")
+
+    @NotNull(message = "É necessário fornecer uma data de nascimento")
     @PastOrPresent(message = "Data de nascimento não pode ser no futuro")
+    @JsonFormat(pattern="dd-MM-yyyy")
     private LocalDate dataDeNascimento;
 
-    @OneToMany
-    @Size(min=1,message = "É necessário fornecer pelo menos um contato")
+    @OneToMany(cascade = CascadeType.ALL,fetch = FetchType.EAGER)
+    @NotEmpty(message = "É necessário fornecer pelo menos um contato")
     private List<Contato> contatos;
 
     public Pessoa(Long id, String nome, String cpf, LocalDate dataDeNascimento, List<Contato> contatos) {
@@ -40,9 +40,7 @@ public class Pessoa {
     public Pessoa() {
     }
 
-    public void validarCpf(){
 
-    }
 
     public Long getId() {
         return id;
